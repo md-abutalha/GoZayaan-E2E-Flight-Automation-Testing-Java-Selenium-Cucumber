@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
-import utilities.DriverSetup;
+import utils.DriverSetup;
 
 import java.io.ByteArrayInputStream;
 
@@ -21,13 +21,14 @@ public class BasePage extends DriverSetup {
     }
 
     // Click Element
-    public void clickElement(By locator) {
+    public WebElement clickElement(By locator) {
         WebElement element = getElement(locator);
         if (element != null) {
             element.click();
         } else {
             System.out.println("Unable to click. Element not found: " + locator);
         }
+        return element;
     }
 
     // Send Keys
